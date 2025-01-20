@@ -3,10 +3,11 @@ using CashSystem.Protocols.Shared;
 using Microsoft.Extensions.Logging;
 using System;
 using System.IO.Ports;
+using System.Threading.Tasks;
 
 namespace CashSystem.Protocols.CCTalk
 {
-    internal class CCTalkCommunicationManager : CommunicationManager
+    public class CCTalkCommunicationManager : CommunicationManager, ICCTalkCommunicationManager
     {
         /// <summary>
 		/// Minimal possible message length
@@ -24,9 +25,10 @@ namespace CashSystem.Protocols.CCTalk
         public readonly byte PosHeader = 3;
         public readonly byte PosDataStart = 4;
         private readonly IChecksum _checksum;
+        private readonly IHandlerFactory _handlerFactory;
         private readonly ILogger _logger;
 
-        public CCTalkCommunicationManager(string portName, IChecksum checksum, ILogger logger)
+        public CCTalkCommunicationManager(string portName, IChecksum checksum, IHandlerFactory handlerFactory, ILogger logger)
             : base(portName,
                    baudRate: 9600,
                    parity: Parity.None,
@@ -35,6 +37,7 @@ namespace CashSystem.Protocols.CCTalk
                    handshake: Handshake.None)
         {
             _checksum = checksum;
+            _handlerFactory = handlerFactory;
             _logger = logger;
         }
 
@@ -42,6 +45,17 @@ namespace CashSystem.Protocols.CCTalk
         {
             _checksum.CalcAndApply(request);
         }
+
+        public async Task SendMessageAsync(IMessage message)
+        {
+            var handle = _handlerFactory.CreateHandle(message.Command);
+
+            var messageBytes = handle.Handle(message);
+
+            await Send(messageBytes);
+        }
+
+
 
         protected override bool IsComplete(byte[] responseBuffer, int lenght)
         {
