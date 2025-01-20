@@ -1,0 +1,33 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.0.31903.59
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CashSystem.Protocols.CCTalk", "src\CashSystem.Protocols.CCTalk\CashSystem.Protocols.CCTalk.csproj", "{251988AC-E0DD-4268-B581-3F9624204DA4}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CashSystem.Protocols.Shared", "src\CashSystem.Protocols.Shared\CashSystem.Protocols.Shared.csproj", "{CA8DDD8A-9986-4462-9E1C-3102AB6C105E}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "1 - Shared", "1 - Shared", "{4A9F6EE0-BFB7-48DB-862A-74F796DCBA57}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{251988AC-E0DD-4268-B581-3F9624204DA4}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{251988AC-E0DD-4268-B581-3F9624204DA4}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{251988AC-E0DD-4268-B581-3F9624204DA4}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{251988AC-E0DD-4268-B581-3F9624204DA4}.Release|Any CPU.Build.0 = Release|Any CPU
+		{CA8DDD8A-9986-4462-9E1C-3102AB6C105E}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{CA8DDD8A-9986-4462-9E1C-3102AB6C105E}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{CA8DDD8A-9986-4462-9E1C-3102AB6C105E}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{CA8DDD8A-9986-4462-9E1C-3102AB6C105E}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+		{CA8DDD8A-9986-4462-9E1C-3102AB6C105E} = {4A9F6EE0-BFB7-48DB-862A-74F796DCBA57}
+	EndGlobalSection
+EndGlobal
